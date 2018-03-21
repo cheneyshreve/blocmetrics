@@ -17,6 +17,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'figaro'
 gem 'bootstrap-sass'
+gem 'devise'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -43,7 +45,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
   gem 'shoulda'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot_rails'
 end
 
 
