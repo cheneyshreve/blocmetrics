@@ -23,6 +23,7 @@
 .byebug_history
 .env
 
-# Ignore application configuration
+
 /config/application.yml
 /config/secrets.yml
+/config/secrets_backup.yml
