@@ -23,7 +23,6 @@
 .byebug_history
 .env
 
-
-/config/application.yml
 /config/secrets.yml
 /config/secrets_backup.yml
+/config/application.yml
