@@ -42,7 +42,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.7'
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'factory_bot_rails'
