@@ -15,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'figaro'
+
 gem 'bootstrap-sass'
 gem 'devise'
 
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda'
   gem 'factory_bot_rails'
+  gem 'figaro'
 end
 
 
