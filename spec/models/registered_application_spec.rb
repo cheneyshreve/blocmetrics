@@ -6,6 +6,8 @@ RSpec.describe RegisteredApplication, type: :model do
 
    it { is_expected.to belong_to(:user) }
 
+   
+
   describe "attributes" do
     it "has a name" do
       expect(registered_application).to have_attributes(name: registered_application.name)
