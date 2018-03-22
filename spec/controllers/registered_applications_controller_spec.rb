@@ -4,7 +4,7 @@ require 'devise'
 RSpec.describe RegisteredApplicationsController, type: :controller do
 
   let(:this_user) { User.create!(email: 'blocbloc@bloc.io', password: 'password', password_confirmation: 'password') }
-  let(:my_app) { RegisteredApplication.create!(id: 1, user_id: this_user.id, name: "application name", url: "http://www.someawesomesite.com" )}
+  let(:my_app) { RegisteredApplication.create!(user_id: this_user.id, name: "application name", url: "http://www.someawesomesite.com" )}
 
   describe "GET #index" do
     before(:each) do
@@ -67,6 +67,24 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       get :edit
       expect(response).to have_http_status(:success)
     end
+  end
+
+  describe "POST create" do
+    before(:each) do
+       @request.env["devise.mapping"] = Devise.mappings[:user]
+       user = FactoryBot.create(:user)
+       sign_in user
+    end
+
+    it "increases the number of registered apps by 1" do
+       
+    end
+
+     it "redirects to the new registered app" do
+        post :create, params: { id: my_app.id }
+        expect(response).to redirect_to(registered_applications_path)
+      end
+
   end
 
 

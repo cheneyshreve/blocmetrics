@@ -15,9 +15,17 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(app_params)
+
+    if @registered_application.save
+       redirect_to registered_applications_path, notice: "The application was registered successfully."
+    else
+      flash.now[:alert] = "Error registereding application. Please try again."
+      render :new
+    end
   end
 
   def edit
+
   end
 
   def update
@@ -28,7 +36,8 @@ class RegisteredApplicationsController < ApplicationController
 
   private
   def app_params
-    params.require(:registered_application).permit(:name, :url, :id, :user_id)
+    params.require(:registered_application).permit(:name, :url, :id, :user_id, :created_at, :updated_at)
   end
+
 
 end
