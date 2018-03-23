@@ -104,6 +104,23 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       end
     end
 
+    describe "DELETE destroy" do
+      before(:each) do
+         @request.env["devise.mapping"] = Devise.mappings[:user]
+         user = FactoryBot.create(:user)
+         sign_in user
+      end
+       it "deletes the topic" do
+         delete :destroy, params: { id: my_app.id }
+         count = RegisteredApplication.where({id: my_app.id}).size
+         expect(count).to eq 0
+       end
+
+       it "redirects to topics index" do
+         delete :destroy, params: { id: my_app.id }
+         expect(response).to redirect_to (registered_applications_path)
+       end
+     end
 
 
 end

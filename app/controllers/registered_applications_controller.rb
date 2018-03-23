@@ -42,6 +42,14 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def destroy
+    @registered_application = RegisteredApplication.find(params[:id])
+    if @registered_application.destroy
+     flash[:notice] = "\"#{@registered_application.name}\" was deleted successfully."
+     redirect_to registered_applications_path
+    else
+     flash.now[:alert] = "There was an error deleting the application."
+     render :show
+    end
   end
 
   private
