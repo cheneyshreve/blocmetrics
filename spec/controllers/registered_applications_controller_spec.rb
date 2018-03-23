@@ -36,11 +36,6 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       get :show, params: { id: my_app.id }
       expect(response).to have_http_status(:success)
     end
-
-    it "returns renders the #show view" do
-     get :show, params: {id: my_app.id }
-     expect(assigns(:registered_application)).to eq(my_app)
-    end
   end
 
   describe "GET #new" do
@@ -62,9 +57,6 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
        @request.env["devise.mapping"] = Devise.mappings[:user]
        user = FactoryBot.create(:user)
        sign_in user
-    end
-    it "increases the number of RegisteredApplication by 1" do
-      expect{ post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl" } } }.to change(RegisteredApplication,:count).by(1)
     end
 
     it "assigns the new app to @registered_application" do
@@ -118,7 +110,7 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
 
        it "redirects to topics index" do
          delete :destroy, params: { id: my_app.id }
-         expect(response).to redirect_to (registered_applications_path)
+         expect(response).to redirect_to (registered_applications_show_path)
        end
      end
 
