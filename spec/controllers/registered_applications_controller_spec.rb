@@ -76,14 +76,19 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
        sign_in user
     end
 
-    it "increases the number of registered apps by 1" do
-       
+    it "increases the number of RegisteredApplication by 1" do
+      expect{ post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl" } } }.to change(RegisteredApplication,:count).by(1)
     end
 
-     it "redirects to the new registered app" do
-        post :create, params: { id: my_app.id }
-        expect(response).to redirect_to(registered_applications_path)
-      end
+    it "assigns the new app to @registered_application" do
+      post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl", user_id: this_user.id } }
+      expect(assigns(:registered_application)).to eq RegisteredApplication.last
+    end
+
+    it "redirects to the new registered_application" do
+      post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl", user_id: this_user.id } }
+      expect(response).to redirect_to [RegisteredApplication.last]
+    end
 
   end
 

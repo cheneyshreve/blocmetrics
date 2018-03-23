@@ -1,5 +1,5 @@
 class RegisteredApplicationsController < ApplicationController
-
+  before_action :authenticate_user!
 
   def index
      @registered_applications = RegisteredApplication.all
@@ -17,7 +17,7 @@ class RegisteredApplicationsController < ApplicationController
     @registered_application = RegisteredApplication.new(app_params)
 
     if @registered_application.save
-       redirect_to registered_applications_path, notice: "The application was registered successfully."
+       redirect_to @registered_application, notice: "The application was registered successfully."
     else
       flash.now[:alert] = "Error registereding application. Please try again."
       render :new
@@ -25,7 +25,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def edit
-
+    
   end
 
   def update
@@ -36,7 +36,7 @@ class RegisteredApplicationsController < ApplicationController
 
   private
   def app_params
-    params.require(:registered_application).permit(:name, :url, :id, :user_id, :created_at, :updated_at)
+    params.require(:registered_application).permit(:name, :url, :user_id, :id)
   end
 
 
