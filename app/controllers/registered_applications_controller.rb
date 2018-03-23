@@ -1,12 +1,11 @@
 class RegisteredApplicationsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
      @registered_applications = RegisteredApplication.all
   end
 
   def show
-    @registered_application = RegisteredApplication.find(params[:id])
+    @registered_applications = RegisteredApplication.all
   end
 
   def new
@@ -15,11 +14,12 @@ class RegisteredApplicationsController < ApplicationController
 
   def create
     @registered_application = RegisteredApplication.new(app_params)
+    @registered_application.user = current_user
 
     if @registered_application.save
        redirect_to @registered_application, notice: "The application was registered successfully."
     else
-      flash.now[:alert] = "Error registereding application. Please try again."
+      flash.now[:alert] = "Error registering application. Please try again."
       render :new
     end
   end

@@ -1,15 +1,23 @@
-<h1>Registered Applications</h1>
+
 <p>Find me in app/views/registered_applications/index.html.erb</p>
 
-<h1>Registered Applications</h1>
-<% @registered_applications.each do |app| %>
-      <h3><%= app.name %></h3
-      <h3><%= app.url %></h3>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+   <h1>Registered Applications</h1>
+    <div class="media">
+       <div class="media-body">
+         <h4 class="media-heading">
+          <% @registered_applications.each do |app| %>
+              <h4><%= app.name %></h4>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2> Your registered applications </h2>
-<% @registered_applications.each do |app| %>
-  <% if current_user.id == app.user_id %>
-      <h3><%= app.name %></h3>
-  <% end %>
-<% end %>
+<div class="row">
+     <div class="col-md-8">
+      <%= link_to "Create New", new_registered_application_path(@registered_application), class: 'btn btn-success' %>
+     </div>
+   </div>
+ </div>
