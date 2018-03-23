@@ -1,2 +1,15 @@
-<h1>RegisteredApplications#index</h1>
+<h1>Registered Applications</h1>
 <p>Find me in app/views/registered_applications/index.html.erb</p>
+
+<h1>Registered Applications</h1>
+<% @registered_applications.each do |app| %>
+      <h3><%= app.name %></h3
+      <h3><%= app.url %></h3>
+<% end %>
+
+<h2> Your registered applications </h2>
+<% @registered_applications.each do |app| %>
+  <% if current_user.id == app.user_id %>
+      <h3><%= app.name %></h3>
+  <% end %>
+<% end %>
