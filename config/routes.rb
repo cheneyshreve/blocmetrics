@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "registered_applications/new"
   get "registered_applications/edit"
   get "users/show"
+  get "users/index"
 
   devise_for :users
   resources :users
