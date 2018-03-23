@@ -25,10 +25,20 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def edit
-    
+    @registered_application = RegisteredApplication.find(params[:id])
   end
 
   def update
+    @registered_application = RegisteredApplication.find(params[:id])
+    @registered_application.assign_attributes(app_params)
+
+    if @registered_application.save
+       redirect_to @registered_application, notice: "The application was updated successfully."
+    else
+      flash.now[:alert] = "Error editing application. Please try again."
+      render :edit
+    end
+
   end
 
   def destroy

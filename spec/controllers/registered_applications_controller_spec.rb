@@ -57,25 +57,12 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
 
   end
 
-  describe "GET #edit" do
-    before(:each) do
-       @request.env["devise.mapping"] = Devise.mappings[:user]
-       user = FactoryBot.create(:user)
-       sign_in user
-    end
-    it "returns http success" do
-      get :edit
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "POST create" do
     before(:each) do
        @request.env["devise.mapping"] = Devise.mappings[:user]
        user = FactoryBot.create(:user)
        sign_in user
     end
-
     it "increases the number of RegisteredApplication by 1" do
       expect{ post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl" } } }.to change(RegisteredApplication,:count).by(1)
     end
@@ -89,8 +76,33 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       post :create, params: { id: my_app.id, registered_application: { name: "somename", url: "someurl", user_id: this_user.id } }
       expect(response).to redirect_to [RegisteredApplication.last]
     end
-
   end
+
+  describe "GET #edit" do
+    before(:each) do
+       @request.env["devise.mapping"] = Devise.mappings[:user]
+       user = FactoryBot.create(:user)
+       sign_in user
+    end
+    it "returns http success" do
+      get :edit, params: { id: my_app.id }
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "PUT update" do
+    before(:each) do
+       @request.env["devise.mapping"] = Devise.mappings[:user]
+       user = FactoryBot.create(:user)
+       sign_in user
+    end
+      it "returns http redirect" do
+        new_name = "fancynewname"
+        new_url = "fancynewurl"
+        put :update, params: { id: my_app.id, registered_application: { name: new_name, url: new_url } }
+        expect(response).to redirect_to(my_app)
+      end
+    end
 
 
 
