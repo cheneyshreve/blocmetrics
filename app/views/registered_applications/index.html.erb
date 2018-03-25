@@ -5,7 +5,7 @@
        <div class="media-body">
          <h4 class="media-heading">
           <% @registered_applications.each do |app| %>
-              <h4><%= app.name %></h4>
+              <h4>Name: <%= app.name %>  Url: <%= app.url %></h4>
           <% end %>
       </div>
     </div>

@@ -1,7 +1,5 @@
 # populate db with some registered applications and associated events
 
-
-
 10.times do
   User.create!(
   email: Faker::Internet.unique.email,
@@ -11,25 +9,28 @@
 end
 users = User.all
 
-# using a real user because of confirmation requirements
-admin_user = User.find([id= 1])
-admin_application = RegisteredApplication.find([id = 1])
-
-# adding some fake appications for admin_user
+seed_user = User.create!(
+  email: "admin@admin.com",
+  password: "password",
+  password_confirmation: "password"
+)
+seed_user.skip_confirmation!
+seed_user.save!
+# adding some fake appications for seed_user
 10.times do
   RegisteredApplication.create!(
-    user: admin_user,
+    user: seed_user,
     name: Faker::Internet.unique.domain_word,
     url: Faker::Internet.unique.url
   )
 end
 registered_applications = RegisteredApplication.all
+seed_application = registered_applications.first
 
-# adding some fake events for admin_user, admin_application
+
 10.times do
    Event.create!(
-     user: admin_user,
-     registered_application: admin_application,
+     registered_application: registered_applications.sample,
      name: Faker::Internet.unique.domain_word
    )
 end
