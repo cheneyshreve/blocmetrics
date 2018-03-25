@@ -1,11 +1,11 @@
 class RegisteredApplicationsController < ApplicationController
-
+ 
   def index
      @registered_applications = current_user.registered_applications
   end
 
   def show
-    @registered_applications = RegisteredApplication.all
+    @registered_applications = current_user.registered_applications
     @events =  current_user.registered_applications.first.events.group_by(&:name)
   end
 
