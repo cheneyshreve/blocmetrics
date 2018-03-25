@@ -5,6 +5,7 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
 
   let(:this_user) { User.create!(email: 'blocbloc@bloc.io', password: 'password', password_confirmation: 'password') }
   let(:my_app) { RegisteredApplication.create!(user_id: this_user.id, name: "application name", url: "http://www.someawesomesite.com" )}
+  let(:my_app_event){ Event.create!(name: "some_event", registered_application: my_app ) }
 
   describe "GET #index" do
     before(:each) do
@@ -18,11 +19,10 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "assigns Topic.all to topic" do
+    it "assigns RegisteredApplication to @registered_applications" do
         get :index
         expect(assigns(:registered_applications)).to eq([my_app])
     end
-
   end
 
   describe "GET #show" do
@@ -35,6 +35,12 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
     it "returns http success" do
       get :show, params: { id: my_app.id }
       expect(response).to have_http_status(:success)
+    end
+
+    # need to fix this test
+    it "assigns an event to @events" do
+      get :show, params: { id: my_app.id }
+      expect(assigns(:events)).to eq(my_app_event)
     end
   end
 

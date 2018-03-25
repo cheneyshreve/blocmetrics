@@ -5,8 +5,7 @@ RSpec.describe RegisteredApplication, type: :model do
   let(:registered_application) { RegisteredApplication.create!(user_id: my_user.id, name: "application name", url: "http://www.test.url.com" )}
 
    it { is_expected.to belong_to(:user) }
-
-   
+   it { is_expected.to have_many(:events) }
 
   describe "attributes" do
     it "has a name" do

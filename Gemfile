@@ -45,6 +45,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'rails-controller-testing'
   gem 'shoulda'
+  gem 'better_errors'
+  gem 'faker'
   gem 'factory_bot_rails'
   gem 'figaro'
 end
