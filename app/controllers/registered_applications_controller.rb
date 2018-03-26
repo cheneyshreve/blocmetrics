@@ -1,12 +1,15 @@
 class RegisteredApplicationsController < ApplicationController
- 
+ before_action :authenticate_user!
+
   def index
-     @registered_applications = current_user.registered_applications
+     @registered_applications = RegisteredApplication.all
   end
 
   def show
-    @registered_applications = current_user.registered_applications
-    @events =  current_user.registered_applications.first.events.group_by(&:name)
+    @registered_applications = RegisteredApplication.all
+    @user = current_user
+    @registered_application = @user.registered_applications
+    @events = @registered_application.first.events.group_by(&:name)
   end
 
   def new

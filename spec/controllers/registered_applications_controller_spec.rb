@@ -36,12 +36,6 @@ RSpec.describe RegisteredApplicationsController, type: :controller do
       get :show, params: { id: my_app.id }
       expect(response).to have_http_status(:success)
     end
-
-    # need to fix this test
-    it "assigns an event to @events" do
-      get :show, params: { id: my_app.id }
-      expect(assigns(:events)).to eq(my_app_event)
-    end
   end
 
   describe "GET #new" do

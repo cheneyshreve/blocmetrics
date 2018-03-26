@@ -5,11 +5,13 @@
    <div class="media-body">
      <h4 class="media-heading">
      <% @registered_applications.each do |app| %>
+     <% if app.user_id == current_user.id %>
       <h4>Name: <%= app.name %></h4>
       <h4>Url: <%= app.url %></h4>
       <h4>Events: <%= app.events.count %></h4>
       <%= link_to "Edit", edit_registered_application_path(app), class: 'btn btn-success' %>
       <%= link_to "Delete", app, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this application?' } %>
+     <% end %>
      <% end %>
     </div>
    </div>
