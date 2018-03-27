@@ -30,6 +30,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.19.1'
+gem 'figaro'
 
 group :production do
   # Use pg as the production database for Active Record
@@ -50,7 +51,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'faker'
   gem 'factory_bot_rails'
-  gem 'figaro'
 end
 
 

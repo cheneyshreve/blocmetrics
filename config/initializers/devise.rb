@@ -20,6 +20,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   # config.mailer_sender = ENV["GMAIL_USERNAME"]
   config.mailer_sender = "shedevsnow@gmail.com"
+  config.secret_key = ENV['DEVISE_SECRET_KEY'] 
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
