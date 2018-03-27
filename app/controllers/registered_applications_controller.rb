@@ -9,7 +9,12 @@ class RegisteredApplicationsController < ApplicationController
     @registered_applications = RegisteredApplication.all
     @user = current_user
     @registered_application = @user.registered_applications
-    @events = @registered_application.first.events.group_by(&:name)
+
+    if @registered_application.first.nil?
+      redirect_to registered_applications_new_path, notice: "You must register an application first."
+    else
+      @events = @registered_application.first.events.group_by(&:name)
+    end
   end
 
   def new
