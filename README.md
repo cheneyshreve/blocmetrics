@@ -9,7 +9,7 @@ Blocmetrics is an analytics service to track events on websites.
 - Graphs of event data displayed using Chartkick and Groupdate download option
 
 ### Installation
-- Visit the live [web-application](https://stark-forest-69447.herokuapp.com/api/events) to sign-up for an account
+- Visit the live [web-application](https://stark-forest-69447.herokuapp.com/) to sign-up for an account
 
 ### Setup and configuration
 To configure your application for tracking with Blocmetrics, add the following JavaScript Snippet to
