@@ -3,9 +3,26 @@
 Blocmetrics is an analytics service to track events on websites.
 
 ### Key features:
-- client-side JavaScript snippet that allows users to track events on their website
 - server-side API that captures and saves those events to a database
 - a Rails application that displays the captured event data for a user
+- client-side JavaScript snippet that allows users to track events on their website
+
+Note: while under development, localhost is being used. This information will be updated when Blocmetrics is completed and live.
+
+To configure your application for tracking with Blocmetrics, add the following JavaScript Snippet:
+```
+var blocmetrics = {};
+
+blocmetrics.report = function(eventName){
+
+   	var event = {event: { name: eventName }};
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://localhost:3000/api/events", true); // while under development
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify(event));
+};
+```
+
 
 ### Installation
 - clone and download the source code from the repository
