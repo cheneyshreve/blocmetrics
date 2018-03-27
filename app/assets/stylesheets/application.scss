@@ -27,6 +27,19 @@
   z-index: 2;
 }
 
+.jumbotron h1, h1.about-heading {
+  color: white;
+  font-weight: bold;
+  z-index: 2;
+  margin: 5px;
+}
+
+.jumbotron h2, h2.about-subheading {
+  color: white;
+  z-index: 2;
+  margin: 5px;
+}
+
 .jumbotron {
   background-image:
   linear-gradient(
@@ -39,12 +52,15 @@
 }
 
 .jumbotron-about {
-  background-image:  linear-gradient(
+  background-image:
+  linear-gradient(
         rgba(0, 25, 200, 0.5),
         rgba(0, 25, 200, 0.5)
       ), url(/assets/john-carlisle-539580-unsplash.jpg);
   background-size: cover;
   background-color: rgba(238, 238, 238, 0.75);
+  border-radius: 6px 6px;
+  padding: 10px;
   z-index: 1;
 }
 
