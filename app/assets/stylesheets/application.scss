@@ -15,3 +15,43 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.jumbotron h1, h1.cover-heading {
+  color: white;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.jumbotron h2, h2.cover-subheading {
+  color: white;
+  z-index: 2;
+}
+
+.jumbotron {
+  background-image:
+  linear-gradient(
+      rgba(0, 15, 200, 0.5),
+      rgba(0, 15, 200, 0.5)
+    ),url(/assets/drmakete-lab-57353-unsplash.jpg);
+  background-size: cover;
+  background-color: rgba(238, 238, 238, 0.75);
+  z-index: 1;
+}
+
+.jumbotron-about {
+  background-image:  linear-gradient(
+        rgba(0, 25, 200, 0.5),
+        rgba(0, 25, 200, 0.5)
+      ), url(/assets/john-carlisle-539580-unsplash.jpg);
+  background-size: cover;
+  background-color: rgba(238, 238, 238, 0.75);
+  z-index: 1;
+}
+
+a {
+  font-size: 1.75rem;
+}
+
+ul li {
+  font-size: 1.75rem;
+}
