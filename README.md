@@ -3,40 +3,46 @@
 Blocmetrics is an analytics service to track events on websites.
 
 ### Key features:
-- server-side API that captures and saves those events to a database
-- a Rails application that displays the captured event data for a user
-- client-side JavaScript snippet that allows users to track events on their website
+- A server-side API that captures and saves events to a database built with Rails 5.1.5
+- A client-side JavaScript snippet that allows users to track events on their website
+- A web accessible rails application that displays the captured event data for a user
+- Graphs of event data displayed using Chartkick and Groupdate
 
-Note: while under development, localhost is being used. This information will be updated when Blocmetrics is completed and live.
+### Installation
+- Visit live (web-application)[https://stark-forest-69447.herokuapp.com/api/events] to sign-up for an account
 
-To configure your application for tracking with Blocmetrics, add the following JavaScript Snippet:
+### Setup and configuration
+To configure your application for tracking with Blocmetrics, add the following JavaScript Snippet to
+your application, e.g. to app/assets/javascripts/application.js for a Rails application:
+
 ```
 var blocmetrics = {};
 
 blocmetrics.report = function(eventName){
 
- 	var event = { event: { name: eventName }};
-
+  var event = { event: { name: eventName }};
   var request = new XMLHttpRequest();
-
-  request.open("POST", "http://localhost:3000/api/events", true); // while under development
-
+  request.open("POST", "https://stark-forest-69447.herokuapp.com/api/events", true);
   request.setRequestHeader('Content-Type', 'application/json');
-
   request.send(JSON.stringify(event));
 };
 ```
 
+Usage:
+Add this snippet ```blocmetrics.report('eventName')``` to the relevant views, customizing for the event you wish to track.
 
-### Installation
-- clone and download the source code from the repository
+```
+window.onload = function() {
+  blocmetrics.report('eventName');
+}
+```
 
-### Setup and configuration
-- More details to be added, application currently under development
+- Push your changes to GitHub
+- Push your changes to your production environment (if relevant)
 
 Languages and frameworks
-- Ruby
-- Ruby-on-Rails
+- Ruby 2.5.0p0
+- Ruby-on-Rails 5.1.5
 
 Databases
 - SQLite (Test, Development)
