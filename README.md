@@ -6,10 +6,10 @@ Blocmetrics is an analytics service to track events on websites.
 - A server-side API that captures and saves events to a database built with Rails 5.1.5
 - A client-side JavaScript snippet that allows users to track events on their website
 - A web accessible rails application that displays the captured event data for a user
-- Graphs of event data displayed using Chartkick and Groupdate
+- Graphs of event data displayed using Chartkick and Groupdate download option
 
 ### Installation
-- Visit live [web-application](https://stark-forest-69447.herokuapp.com/api/events) to sign-up for an account
+- Visit the live [web-application](https://stark-forest-69447.herokuapp.com/api/events) to sign-up for an account
 
 ### Setup and configuration
 To configure your application for tracking with Blocmetrics, add the following JavaScript Snippet to
