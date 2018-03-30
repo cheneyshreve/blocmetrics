@@ -16,25 +16,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.jumbotron h1, h1.cover-heading {
+.jumbotron h2, h2.cover-heading {
   color: white;
   font-weight: bold;
   z-index: 2;
 }
 
-.jumbotron h2, h2.cover-subheading {
+.jumbotron h3, h3.cover-subheading {
   color: white;
   z-index: 2;
 }
 
-.jumbotron h1, h1.about-heading {
+.jumbotron h2, h2.about-heading {
   color: white;
   font-weight: bold;
   z-index: 2;
   margin: 5px;
 }
 
-.jumbotron h2, h2.about-subheading {
+.jumbotron h3, h3.about-subheading {
   color: white;
   z-index: 2;
   margin: 5px;
@@ -65,9 +65,9 @@
 }
 
 a {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 ul li {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
