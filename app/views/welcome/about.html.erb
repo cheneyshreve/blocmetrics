@@ -1,6 +1,6 @@
 <div class="row">
  <div class="col-md-8">
-    <h3>Key features: </h3>
+    <h2>Key features: </h2>
     <ul>
      <li>Server-side API that captures and saves those events to a database</li>
      <li>Rails application that displays the captured event data for a user</li>
@@ -8,3 +8,32 @@
     </ul>
  </div>
 </div>
+<div class="row">
+ <div class="col-md-8">
+   <h3>Getting Started</h3>
+    <p>Paste the JavaScript code snippet below in your application or pages within your website to track specific events.</p>
+  <p>var blocmetrics = {};
+  <br/>
+    blocmetrics.report = function(eventName){
+  <br/>
+      var event = { event: { name: eventName }};
+  <br/>
+      var request = new XMLHttpRequest();
+  <br/>
+      request.open("POST","https://stark-forest-69447.herokuapp.com/api/events", true);
+  <br/>
+      request.setRequestHeader('Content-Type', 'application/json');
+  <br/>
+      request.send(JSON.stringify(event));
+  <br/>
+      };
+  <br/>
+        </p>
+<h3>Usage</h3>
+Call blocmetrics.report('eventName') to the relevant views, customizing for the event you wish to track, e.g.:
+<br/>
+window.onload = function() {
+  <br/>
+  blocmetrics.report('eventName');
+  <br/>
+}
